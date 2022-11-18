@@ -1,0 +1,9 @@
+dblocks
+-------
+
+Status program written in C for dwm. Depends on the X11 development libraries.
+Every element is in the configuration file by default, simply change them as
+you wish.
+
+To compile, run `make`. To install, run `make install` as root. By default, the
+program will be installed to /usr/local/bin.
