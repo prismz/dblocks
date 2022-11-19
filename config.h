@@ -7,6 +7,18 @@ typedef struct {
         int interval;
 } Block;
 
+/*
+ * music         cmus metadata           arg: NULL
+ * get_disk_rw   disk r/w speed in MB/s  arg: device name
+ * keymap        X11 keymap              arg: NULL
+ * uptime        system uptime           arg: NULL
+ * command       runs a command          arg: command
+ * portage       gentoo packages         arg: NULL
+ * loadavg       CPU load average        arg: 1, 5, 15 or all (man 3 getloadavg)
+ * memory        memory usage in MiB     arg: NULL
+ * datetime      date and time           arg: time format (man 3 strftime)
+ */
+
 static const Block elements[] = {
         { music,       NULL,                         "[%s]", 1 },
         { get_disk_rw, "sdb",                        "[%s]", 1 },
