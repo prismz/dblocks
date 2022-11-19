@@ -9,13 +9,14 @@
 char *portage(void)
 {
         char *buf = safe_malloc(sizeof(char) * 256);
-        strncpy(buf, "NULL", 256);
 
         size_t c = 0;
         struct dirent *ent;
         DIR *dir = opendir("/var/db/pkg");
-        if (!dir)
-                return buf;
+        if (!dir) {
+		free(buf);
+                return NULL;
+	}
 
         while ((ent = readdir(dir)) != NULL) {
                 char *n = ent->d_name;
