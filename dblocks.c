@@ -20,8 +20,15 @@ void setstatus(char *str)
         XFlush(dpy);
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
+	bool use_stdout = false;
+	for (int i = 1; i < argc; i++) {
+		if (strcmp(argv[i], "-s") == 0 ||
+				strcmp(argv[i], "--stdout") == 0)
+			use_stdout = true;
+	}
+
         if (!(dpy = XOpenDisplay(NULL)))
                 die("XOpenDisplay\n");
 
@@ -73,7 +80,10 @@ int main(void)
                                 strncat(status, buf, 1024);
                         }
 
-                        setstatus(status);
+			if (use_stdout)
+				printf("%s\n", status);
+			else
+				setstatus(status);
                 }
 
                 sleep(1);

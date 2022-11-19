@@ -7,3 +7,7 @@ you wish.
 
 To compile, run `make`. To install, run `make install` as root. By default, the
 program will be installed to /usr/local/bin.
+
+arguments:
+	-s/--stdout                make the program print to stdout instead of
+					the X11 root window name.
