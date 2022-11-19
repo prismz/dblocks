@@ -73,7 +73,7 @@ int get_current_disk_rw(char *dev, int *o_r, int *o_w)
 
 char *get_disk_rw(char *dev)
 {
-        char *cache_path = "/home/hasan/.diskstat-cache";
+        char *cache_path = "/tmp/.diskstat-cache";
         time_t last_checked = 0;
         int last_read = 0;
         int last_wrote = 0;
