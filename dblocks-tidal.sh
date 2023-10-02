@@ -14,15 +14,17 @@ convert_secs() {
 status=$(playerctl -p tidal-hifi status)
 artist=$(playerctl -p tidal-hifi metadata artist)
 title=$(playerctl -p tidal-hifi metadata title)
-position_raw=$(playerctl -p tidal-hifi position | sed 's/\./\n/g' | head -n 1)
+
+# bug in tidal-hifi with mpris length...
+#position_raw=$(playerctl -p tidal-hifi position | sed 's/\./\n/g' | head -n 1)
 
 # "no player could handle this command" ?
 # echo "$(playerctl -p tidal-hifi metadata length)"
 
 # UGLY
-length_raw=$(($(playerctl -p tidal-hifi metadata | grep length | sed 's/ /\n/g' | tail -n 1) / 1000000))
+#length_raw=$(($(playerctl -p tidal-hifi metadata | grep length | sed 's/ /\n/g' | tail -n 1) / 1000000))
 
-position=$(convert_secs "$position_raw")
-length=$(convert_secs "$length_raw")
+#position=$(convert_secs "$position_raw")
+#length=$(convert_secs "$length_raw")
 
-echo "$status $artist - $title $position / $length"
+echo "$status $artist - $title"
