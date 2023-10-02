@@ -21,14 +21,14 @@ typedef struct {
 
 static const Block elements[] = {
         { music,       NULL,                         "[%s]", 1 },
-        { get_disk_rw, "sdb",                        "[%s]", 1 },
-        { keymap,      NULL,                         "[%s]", 5 },
+        { get_disk_rw, "nvme0n1",                        "[%s]", 1 },
+        { keymap,      NULL,                         "[%s]", 1 },
         { uptime,      NULL,                         "[%s]", 50 },
-        { command,
+/*        { command,
                 "awk -F\"[][]\" '/Left:/ { print $2 }' <(amixer sget Master)",
-                "[vol: %s]", 5 },
+                "[vol: %s]", 5 }, */
         { portage,     NULL,                         "[%s pkgs]", 45 },
         { loadavg,     "1",                          "[%s]", 5 },
         { memory,      NULL,                         "[%sMiB]", 3 },
-        { datetime,    "%a %b %d %I:%M:%S %p",       "[%s]", 1 },
+        { datetime,    "%a %b %d %T",       "[%s]", 1 },
 };
