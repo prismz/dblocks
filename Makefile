@@ -5,4 +5,5 @@ run:all
 	./dblocks
 
 install:all
-	cp dblocks /usr/local/bin/dblocks
+	cp dblocks /usr/local/bin/
+	cp dblocks-tidal.sh /usr/local/bin/

@@ -23,7 +23,11 @@ char *command(char *command)
                 buf[idx] = '\0';
         }
 
-        pclose(fp);
+        int rc = pclose(fp);
+        if (rc != 0) {
+                free(buf);
+                return NULL;
+        }
 
         if (buf[strlen(buf) - 1] == '\n')
                 buf[strlen(buf) - 1] = '\0';

@@ -8,7 +8,8 @@ typedef struct {
 } Block;
 
 /*
- * music         cmus metadata           arg: NULL
+ * music_tidal   tidal-hifi metadata     arg: NULL
+ * music_cmus    cmus metadata           arg: NULL
  * get_disk_rw   disk r/w speed in MB/s  arg: device name
  * keymap        X11 keymap              arg: NULL
  * uptime        system uptime           arg: NULL
@@ -20,7 +21,8 @@ typedef struct {
  */
 
 static const Block elements[] = {
-        { music,       NULL,                         "[%s]", 1 },
+        { music_tidal, NULL,                         "[%s]", 1 },
+        { music_cmus,  NULL,                         "[%s]", 1 },
         { get_disk_rw, "nvme0n1",                        "[%s]", 1 },
         { keymap,      NULL,                         "[%s]", 1 },
         { uptime,      NULL,                         "[%s]", 50 },

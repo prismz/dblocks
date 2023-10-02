@@ -49,7 +49,7 @@ end:
         free(buf);
 }
 
-char *music(void)
+char *music_cmus(void)
 {
         char *cmus_data = command("cmus-remote -Q 2> /dev/null");
         if (cmus_data == NULL)
@@ -159,4 +159,10 @@ end:
         free(path);
 
         return buf;
+}
+
+char *music_tidal(void)
+{
+        char *tidal_data = command("./dblocks-tidal.sh");
+        return tidal_data;
 }
