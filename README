@@ -10,4 +10,13 @@ program will be installed to /usr/local/bin.
 
 arguments:
 	-s/--stdout                make the program print to stdout instead of
-					the X11 root window name.
+					setting the X11 root window name.
+
+
+Adding elements is simple - add them into a .c file in `elements`, add the
+function declaration to `elements.h` (functions must return char * that can
+be freed.)
+
+TODO:
+- better volume
+- proper lm-sensors support

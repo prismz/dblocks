@@ -96,7 +96,7 @@ char *get_disk_rw(char *dev)
         int mbw = (s_written - last_wrote) / interval / 2 / 1024;
 
         char *usage_str = safe_malloc(sizeof(char) * 512);
-        snprintf(usage_str, 512, "%03d MB/R %03d MB/W", mbr, mbw);
+        snprintf(usage_str, 512, "R:%dMB/s W:%dMB/s", mbr, mbw);
 
         return usage_str;
 }

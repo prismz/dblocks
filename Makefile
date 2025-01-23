@@ -5,5 +5,6 @@ run:all
 	./dblocks
 
 install:all
-	cp dblocks /usr/local/bin/
-	cp dblocks-tidal.sh /usr/local/bin/
+	cp -f dblocks /usr/local/bin/
+	cp elements/dblocks-spotify.sh /usr/local/bin/
+	#cp elements/dblocks-tidal.sh /usr/local/bin/

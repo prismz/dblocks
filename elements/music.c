@@ -163,6 +163,12 @@ end:
 
 char *music_tidal(void)
 {
-        char *tidal_data = command("/usr/local/bin/dblocks-tidal.sh");
+        char *tidal_data = command("dblocks-tidal.sh");
         return tidal_data;
+}
+
+char *music_spotify(void)
+{
+        char *spotify_data = command("dblocks-spotify.sh");
+        return spotify_data;
 }
