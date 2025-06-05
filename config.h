@@ -36,13 +36,13 @@ static const Block elements[] = {
 //      { get_disk_rw,   "dm-0",                                     "[%s]",            3000 },
         { keymap,        NULL,                                       "[%s]",            500 },
 //      { uptime,        NULL,                                       "[%s]",            50000 },
-        { command,       "awk -F\"[][]\" '/Left:/ { print $2 }' <(amixer sget Master)",
-                                                                     "[vol: %s]",       200 },
+//      { command,       "qlop -r",                                  "[%s]",            30000 },
+        { command,       "pulseaudio-volume",                        "[vol: %s]",       200 },
 
 //      { portage,       NULL,                                       "[portage: %s]",   45000 },
-        { temp_sensor,   "/sys/class/hwmon/hwmon3/temp1_input",      "[GPU: %s]",       2000 },
-        { temp_sensor,   "/sys/class/hwmon/hwmon1/temp1_input",      "[CPU: %s]",       2000 },
+//      { temp_sensor,   "/sys/class/hwmon/hwmon3/temp1_input",      "[GPU: %s]",       2000 },
+//      { temp_sensor,   "/sys/class/hwmon/hwmon1/temp1_input",      "[CPU: %s]",       2000 },
         { loadavg,       "1",                                        "[%s]",            2000 },
         { memory,        NULL,                                       "[%sMiB]",         200 },
-        { datetime,      "%a %b %d %I:%M:%S %p %Y",                  "[%s]",            1000 },
+        { datetime,      "%a %b %d %I:%M:%S %p %Y",                  "[%s]",            500 },
 };

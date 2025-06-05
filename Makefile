@@ -7,4 +7,5 @@ run:all
 install:all
 	cp -f dblocks /usr/local/bin/
 	cp elements/dblocks-spotify.sh /usr/local/bin/
+	cp elements/pulseaudio-volume /usr/local/bin/
 	#cp elements/dblocks-tidal.sh /usr/local/bin/

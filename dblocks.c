@@ -83,12 +83,13 @@ int main(int argc, char **argv)
                 /* updates buffers for elements that need to be updated */
                 for (int i = 0; i < n; i++) {
                         Block element = elements[i];
-                        if (element.interval_ms >= element_intervals_ms[i] &&
+                        if (element_intervals_ms[i] < element.interval_ms &&
                                         element_intervals_ms[i] != 0) {
                                 continue;
                         }
 
                         free(element_buffers[i]);
+                        element_buffers[i] = NULL;
 
                         if (element.arg == NULL)
                                 element_buffers[i] = element.func();
@@ -115,19 +116,18 @@ int main(int argc, char **argv)
                                 strncat(status, buf, 1024);
                         }
 
-                        clock_t end = clock();
-
-                        double generation_time_ms = (((double)(end - start)) / CLOCKS_PER_SEC) * 1000;
-                        if (show_time) {
-                                char time_str[32];
-                                snprintf(time_str, 32, "[%fms]", generation_time_ms);
-                                strncat(status, time_str, 32);
-                        }
-
 			if (use_stdout)
 				printf("%s\n", status);
 			else
 				setdwmstatus(status);
+
+                        clock_t end = clock();
+
+                        double generation_time_ms = (((double)(end - start)) / CLOCKS_PER_SEC) * 1000;
+                        if (show_time)
+                                printf("(generated in %fms)\n", generation_time_ms);
+
+
                 }
 
                 sleep_ms(250);
